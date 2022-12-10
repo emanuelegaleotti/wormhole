@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Planet } from '../planet-model';
-import { PlanetsService } from '../planets.service';
+import { Component, OnInit } from '@angular/core'
+import { ActivatedRoute } from '@angular/router'
+import { Planet } from '../planet-model'
+import { PlanetsService } from '../planets.service'
 
 @Component({
   selector: 'wormhole-planet',
@@ -11,14 +11,16 @@ import { PlanetsService } from '../planets.service';
 export class PlanetComponent implements OnInit {
   planetId: string = ''
   planet: Planet | null = null
-  constructor(
-    private route: ActivatedRoute,
-    private planetsService: PlanetsService
+  constructor (
+    private readonly route: ActivatedRoute,
+    private readonly planetsService: PlanetsService
   ) { }
-  ngOnInit(): void {
+
+  ngOnInit (): void {
     this.getPlanetId()
   }
-  getPlanetId(): void {
+
+  getPlanetId (): void {
     this.route.params.subscribe(p => {
       if (p['id']) {
         this.planetId = p['id']
@@ -26,10 +28,10 @@ export class PlanetComponent implements OnInit {
       }
     })
   }
-  getPlanet(): void {
+
+  getPlanet (): void {
     this.planetsService.getPlanetById(this.planetId).subscribe(p => {
-      this.planet = p;
+      this.planet = p
     })
   }
-
 }

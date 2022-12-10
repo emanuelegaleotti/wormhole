@@ -34,7 +34,8 @@
             "prefix": "wormhole",
             "style": "kebab-case"
           }
-        ]
+        ],
+        "strict-boolean-expressions": 0
       }
     },
     {
