@@ -17,6 +17,10 @@ const routes: Routes = [
     path: 'planets',
     loadChildren: () => import('./planets/planets.module').then(m => m.PlanetsModule)
   },
+  {
+    path: 'starships',
+    loadChildren: () => import('./starships/starships.module').then(m => m.StarshipsModule)
+  },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '**', redirectTo: '404' }
 ];

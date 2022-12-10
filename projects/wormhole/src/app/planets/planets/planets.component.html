@@ -1,1 +1,27 @@
-<p>planets works!</p>
+<div *ngIf="planets.length; else noResult">
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let p of planets">
+                <td>{{p.id}}</td>
+                <td>{{p.name}}</td>
+                <td><a [routerLink]="p.id">Detail</a></td>
+        </tbody>
+    </table>
+    <ul class="pagination">
+        <li *ngFor="let p of pages">
+            <a (click)="setPage(p)">{{p}}</a>
+        </li>
+    </ul>
+</div>
+<ng-template #noResult>
+    <div class="alert">No result</div>
+</ng-template>
+<div class="loader" *ngIf="isLoading">
+    loader
+</div>
