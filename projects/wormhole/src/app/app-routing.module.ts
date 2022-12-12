@@ -14,11 +14,11 @@ const routes: Routes = [
   },
   {
     path: 'planets',
-    loadChildren: async () => await import('./planets/planets.module').then(m => m.PlanetsModule)
+    loadChildren: () => import('./planets/planets.module').then(m => m.PlanetsModule)
   },
   {
     path: 'starships',
-    loadChildren: async () => await import('./starships/starships.module').then(m => m.StarshipsModule)
+    loadChildren: () => import('./starships/starships.module').then(m => m.StarshipsModule)
   },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '**', redirectTo: '404' }
