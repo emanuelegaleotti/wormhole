@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common'
 import { PlanetsRoutingModule } from './planets-routing.module'
 import { PlanetsComponent } from './planets/planets.component'
 import { PlanetComponent } from './planet/planet.component'
+import { SharedModule } from '../shared/shared.module'
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { PlanetComponent } from './planet/planet.component'
   ],
   imports: [
     CommonModule,
-    PlanetsRoutingModule
+    PlanetsRoutingModule,
+    SharedModule
   ]
 })
 export class PlanetsModule { }

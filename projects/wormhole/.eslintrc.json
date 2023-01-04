@@ -31,7 +31,10 @@
             "prefix": "wormhole",
             "style": "kebab-case"
           }
-        ]
+        ],
+        "strict-boolean-expressions": 0,
+        "@ngrx/prefer-one-generic-in-create-for-feature-selector": 0,
+        "@ngrx/no-typed-global-store": 0
       }
     },
     {

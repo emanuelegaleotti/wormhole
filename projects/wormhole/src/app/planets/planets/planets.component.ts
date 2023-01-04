@@ -9,25 +9,22 @@ import { PlanetsService } from '../planets.service'
 })
 export class PlanetsComponent implements OnInit {
   planets: Planet[] = []
-  isLoading: boolean = false
   currentPage: number = 1
-  pages: number[] = []
+  allPlanets: number = 0
 
-  constructor (private readonly palnetsServcice: PlanetsService) { }
-  ngOnInit (): void {
+  constructor(private readonly planetsService: PlanetsService) { }
+  ngOnInit(): void {
     this.gePlanets()
   }
 
-  gePlanets (): void {
-    this.isLoading = true
-    this.palnetsServcice.getPlanets(this.currentPage).subscribe(p => {
+  gePlanets(): void {
+    this.planetsService.getPlanets(this.currentPage).subscribe(p => {
       this.planets = p.results
-      this.isLoading = false
-      this.pages = Array(p.count / 10).fill('').map((p, i) => i + 1)
+      this.allPlanets = p.count
     })
   }
 
-  setPage (id: number): void {
+  setPage(id: number): void {
     this.currentPage = id
     this.gePlanets()
   }
