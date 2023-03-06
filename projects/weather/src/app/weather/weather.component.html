@@ -1,0 +1,18 @@
+<dl>
+    <dt>City:</dt>
+    <dd>{{weather?.name}}</dd>
+    <dt>Temperature:</dt>
+    <dd>{{weather?.temp}}</dd>
+    <dt>Min Temperature:</dt>
+    <dd>{{weather?.temp_min}}</dd>
+    <dt>Max Temperature:</dt>
+    <dd>{{weather?.temp_max}}</dd>
+    <dt>Humidity:</dt>
+    <dd>{{weather?.humidity}}</dd>
+    <dt>Pressure:</dt>
+    <dd>{{weather?.pressure}}</dd>
+</dl>
+<dl *ngFor="let w of weather?.weather">
+    <dt>{{w.main}}</dt>
+    <dd>{{w.description}}</dd>
+</dl>

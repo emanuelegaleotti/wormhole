@@ -1,0 +1,21 @@
+<div *ngIf="planets.length; else noResult">
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let p of planets">
+                <td>{{p.id}}</td>
+                <td>{{p.name}}</td>
+                <td><a [routerLink]="p.id">Detail</a></td>
+        </tbody>
+    </table>
+    <wormhole-pager [totalItems]="allPlanets" (whenPageSelected)="setPage($event)"></wormhole-pager>
+</div>
+<ng-template #noResult>
+    <div class="alert">No result</div>
+</ng-template>

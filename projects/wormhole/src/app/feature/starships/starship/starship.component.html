@@ -1,0 +1,21 @@
+<section *ngIf="(starship$ | async) as s">
+    <dl>
+        <dt>Id</dt>
+        <dd>{{s.id}}</dd>
+        <dt>Name</dt>
+        <dd>{{s.name}}</dd>
+        <dt>Model</dt>
+        <dd>{{s.model}}</dd>
+        <dt>Passengers</dt>
+        <dd>{{s.passengers}}</dd>
+        <dt>Classe</dt>
+        <dd>{{s.starship_class}}</dd>
+        <dt>Hyperdrive</dt>
+        <dd>{{s.hyperdrive}}</dd>
+        <dt>Length</dt>
+        <dd>{{s.length}}</dd>
+        <dt>Manufacturer</dt>
+        <dd>{{s.manufacturer}}</dd>
+    </dl>
+    <button type="button" routerLink="..">Back</button>
+</section>

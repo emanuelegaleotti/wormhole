@@ -1,0 +1,27 @@
+<section>
+    <div *ngIf="people.length; else noResult">
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>name</th>
+                    <th>gender</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let p of people">
+                    <td>{{p.id}}</td>
+                    <td>{{p.name}}</td>
+                    <td>{{p.gender | gender}}</td>
+                    <td><a [routerLink]="p.id">Detail</a></td>
+                </tr>
+            </tbody>
+        </table>
+        <wormhole-pager [totalItems]="allPeople"
+            (whenPageSelected)="store.dispatch(actions.storeCurrentPage({p:$event}))"></wormhole-pager>
+    </div>
+    <ng-template #noResult>
+        no result
+    </ng-template>
+</section>

@@ -1,8 +1,10 @@
 <aside>
     <nav>
         <ul>
-            <li><a routerLink="planets">Planets</a></li>
-            <li><a routerLink="starships">Starships</a></li>
+            <li><a [routerLinkActive]="'active'" routerLink="/planets">Planets</a></li>
+            <li><a [routerLinkActive]="'active'" routerLink="/starships">Starships</a></li>
+            <li><a [routerLinkActive]="'active'" routerLink="/people">People</a></li>
+            <li><a [routerLinkActive]="'vehicles'" routerLink="/vehicles">Vehicles</a></li>
         </ul>
     </nav>
 </aside>
