@@ -14,7 +14,8 @@
     "serve:wormhole": "ng serve Wormhole",
     "serve:vehicles": "ng serve vehicles",
     "serve:weather": "ng serve weather",
-    "serve:all": "node node_modules/@angular-architects/module-federation/src/server/mf-dev-server.js"
+    "serve:all": "node node_modules/@angular-architects/module-federation/src/server/mf-dev-server.js",
+    "run:all": "node node_modules/@angular-architects/module-federation/src/server/mf-dev-server.js"
   },
   "private": true,
   "dependencies": {

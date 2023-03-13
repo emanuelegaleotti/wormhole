@@ -1,1 +1,10 @@
-<p>home page works!</p>
+<section>
+  <div [lorentzSetComponent]="'WeatherComponent'"
+       [remoteUrl]="'http://localhost:3300/weatherEntry.js'"
+       [remoteName]="'weather'"
+  ></div>
+  <div [lorentzSetComponent]="'CityWeatherComponent'"
+       [remoteUrl]="'http://localhost:3600/cityWeatherEntry.js'"
+       [remoteName]="'cityWeather'"
+  ></div>
+</section>

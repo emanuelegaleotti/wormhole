@@ -28,8 +28,17 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 
 ## Feature
-Planets: base crud
-Starships: state crud
-People: hybrid state crud
-Species: micro fe module
-Films: micro fe components
+- Planets: crud with base component and service
+- Starships: crud with Ngrx state
+- People: crud with light Ngrx state
+- Veichles: crud with micro FE module
+- Weather: micro FE components
+- City-Weather: micro fe components with reactive form
+- Loader: Http interceptor with ngrx and dynamic components
+
+## TODO 
+- Http error: Http interceptor and dynamic components
+- Components lib
+- Compodoc
+- Cypress
+- firestore

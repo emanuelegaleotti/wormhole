@@ -6,6 +6,9 @@ import { FooterComponent } from './footer/footer.component'
 import { AsideComponent } from './aside/aside.component'
 import { RouterModule } from '@angular/router'
 import { NotFoundComponent } from './not-found/not-found.component'
+import { SharedModule } from '../shared/shared.module';
+import { LoaderDirective } from './loader/loader.directive';
+import { LoaderComponent } from './loader/loader.component'
 
 @NgModule({
   declarations: [
@@ -13,17 +16,21 @@ import { NotFoundComponent } from './not-found/not-found.component'
     HeaderComponent,
     FooterComponent,
     AsideComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    LoaderDirective,
+    LoaderComponent
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    SharedModule
   ],
   exports: [
     HomeComponent,
     HeaderComponent,
     FooterComponent,
-    AsideComponent
+    AsideComponent,
+    LoaderDirective
   ]
 })
 export class CoreModule { }

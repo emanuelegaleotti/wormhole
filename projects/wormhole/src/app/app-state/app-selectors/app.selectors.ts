@@ -1,3 +1,3 @@
-import { AppState } from "../app-reducers/app.reducers";
+import { AppState } from '../app-reducers/app.reducers'
 
-export const selectAppState = (state: AppState):AppState => state
+export const selectAppState = (state: AppState): AppState => state
