@@ -1,10 +1,19 @@
-<section>
-  <div [lorentzSetComponent]="'WeatherComponent'"
-       [remoteUrl]="'http://localhost:3300/weatherEntry.js'"
-       [remoteName]="'weather'"
-  ></div>
-  <div [lorentzSetComponent]="'CityWeatherComponent'"
-       [remoteUrl]="'http://localhost:3600/cityWeatherEntry.js'"
-       [remoteName]="'cityWeather'"
-  ></div>
+<section class="wormhole-grid"
+         *transloco="let t">
+  <wormhole-card>
+    <h4 card-header>{{t('homepage.weather.title')}}</h4>
+    <div [lorentzSetComponent]="'WeatherComponent'"
+         [remoteUrl]="'http://localhost:3300/weatherEntry.js'"
+         [remoteName]="'weather'"
+         card-body
+    ></div>
+  </wormhole-card>
+  <wormhole-card>
+    <h4 card-header>{{t('homepage.cityWeather.title')}}</h4>
+    <div [lorentzSetComponent]="'CityWeatherComponent'"
+         [remoteUrl]="'http://localhost:3600/cityWeatherEntry.js'"
+         [remoteName]="'cityWeather'"
+         card-body
+    ></div>
+  </wormhole-card>
 </section>

@@ -1,0 +1,9 @@
+{
+  "/site*": {
+    "target": "https://api.websitecarbon.com",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": {"/site" : "https://api.websitecarbon.com/site"}
+  }
+}

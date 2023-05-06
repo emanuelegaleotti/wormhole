@@ -1,0 +1,18 @@
+@use '../../../../sass/abstract/mixins' as mixins;
+
+section {
+  grid-template-rows: auto auto;
+
+  wormhole-card {
+    @include mixins.full-grid();
+
+    wormhole-pager {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .wormhole-alert {
+      @include mixins.full-grid();
+    }
+  }
+}

@@ -8,7 +8,11 @@ import { RouterModule } from '@angular/router'
 import { NotFoundComponent } from './not-found/not-found.component'
 import { SharedModule } from '../shared/shared.module';
 import { LoaderDirective } from './loader/loader.directive';
-import { LoaderComponent } from './loader/loader.component'
+import { LoaderComponent } from './loader/loader.component';
+import { HttpErrorComponent } from './http-error/http-error.component'
+import { TranslocoModule } from '@ngneat/transloco'
+import { ReactiveFormsModule } from '@angular/forms';
+import { LocaleSelectorComponent } from './footer/locale-selector/locale-selector.component'
 
 @NgModule({
   declarations: [
@@ -18,12 +22,16 @@ import { LoaderComponent } from './loader/loader.component'
     AsideComponent,
     NotFoundComponent,
     LoaderDirective,
-    LoaderComponent
+    LoaderComponent,
+    HttpErrorComponent,
+    LocaleSelectorComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
-    SharedModule
+    SharedModule,
+    TranslocoModule,
+    ReactiveFormsModule
   ],
   exports: [
     HomeComponent,

@@ -1,0 +1,23 @@
+html {
+  line-height: 1.5;
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: $ash-gray-100;
+    color: $raisin-black-800;
+    font-size: toRem(18);
+    font-weight: 400;
+    font-family: 'Ubuntu', sans-serif;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+* {
+  &:focus {
+    outline: none;
+  }
+}

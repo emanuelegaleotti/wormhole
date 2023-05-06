@@ -11,8 +11,14 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools'
 import { environment } from '../environments/environment'
 import { AppReducer } from './app-state/app-reducers/app.reducers'
 import { EffectsModule } from '@ngrx/effects'
-import { HttpErrorInterceptor } from './core/http-error.interceptor'
+import { HttpErrorInterceptor } from './core/http-error/http-error.interceptor'
 import { HttpLoaderInterceptor } from './core/loader/http-loader.interceptor'
+import { MatDialogModule } from '@angular/material/dialog'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { TranslocoHttpLoader, TranslocoRootModule } from './transloco-root.module'
+import { NgxWebstorageModule } from 'ngx-webstorage'
+import { AngularFireModule } from '@angular/fire/compat'
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore'
 
 @NgModule({
   declarations: [
@@ -20,13 +26,19 @@ import { HttpLoaderInterceptor } from './core/loader/http-loader.interceptor'
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     CoreModule,
     SharedModule,
     HttpClientModule,
     StoreModule.forRoot(AppReducer, {}),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
-    EffectsModule.forRoot([])
+    EffectsModule.forRoot([]),
+    MatDialogModule,
+    TranslocoRootModule,
+    NgxWebstorageModule.forRoot(),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule
   ],
   providers: [
     {
@@ -38,7 +50,8 @@ import { HttpLoaderInterceptor } from './core/loader/http-loader.interceptor'
       provide: HTTP_INTERCEPTORS,
       useClass: HttpLoaderInterceptor,
       multi: true
-    }
+    },
+    TranslocoHttpLoader
   ],
   bootstrap: [AppComponent]
 })

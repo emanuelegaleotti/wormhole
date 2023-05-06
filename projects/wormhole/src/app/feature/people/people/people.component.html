@@ -1,5 +1,8 @@
-<section>
-    <div *ngIf="people.length; else noResult">
+<section class="wormhole-grid" *transloco="let t">
+  <h2>
+    {{t('people.people.title')}}
+  </h2>
+    <article *ngIf="people.length; else noResult">
         <table>
             <thead>
                 <tr>
@@ -20,8 +23,10 @@
         </table>
         <wormhole-pager [totalItems]="allPeople"
             (whenPageSelected)="store.dispatch(actions.storeCurrentPage({p:$event}))"></wormhole-pager>
-    </div>
+    </article>
     <ng-template #noResult>
-        no result
+      <article class="wormhole-alert">
+        {{t('people.people.noResult')}}
+      </article>
     </ng-template>
 </section>

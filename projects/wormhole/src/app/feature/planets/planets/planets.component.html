@@ -1,21 +1,38 @@
-<div *ngIf="planets.length; else noResult">
-    <table>
+<section *transloco="let t" class="wormhole-grid">
+  <h3>
+    {{t('planets.planets.title')}}
+  </h3>
+  <wormhole-card *ngIf="planets.length; else noResult">
+    <div card-body>
+      <table>
         <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th></th>
-            </tr>
+        <tr>
+          <th>{{t('planets.planets.table.id')}}</th>
+          <th>{{t('planets.planets.table.name')}}</th>
+          <th></th>
+        </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let p of planets">
-                <td>{{p.id}}</td>
-                <td>{{p.name}}</td>
-                <td><a [routerLink]="p.id">Detail</a></td>
+        <tr *ngFor="let p of planets">
+          <td>{{p.id}}</td>
+          <td>{{p.name}}</td>
+          <td class="wormhole-text-right">
+            <a [routerLink]="p.id">
+              {{t('button.detail')}}
+            </a>
+          </td>
         </tbody>
-    </table>
-    <wormhole-pager [totalItems]="allPlanets" (whenPageSelected)="setPage($event)"></wormhole-pager>
-</div>
-<ng-template #noResult>
-    <div class="alert">No result</div>
-</ng-template>
+      </table>
+      <wormhole-pager
+        [totalItems]="allPlanets"
+        (whenPageSelected)="setPage($event)"
+      ></wormhole-pager>
+    </div>
+  </wormhole-card>
+  <ng-template #noResult>
+    <article class="wormhole-alert">
+      {{t('planets.planets.noResult')}}
+    </article>
+  </ng-template>
+</section>
+

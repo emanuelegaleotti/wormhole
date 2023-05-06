@@ -1,0 +1,15 @@
+@use '../../../sass/abstract/mixins' as mixins;
+
+section {
+  grid-template-rows: auto auto;
+  @include mixins.media-breakpoint-up(lg) {
+    grid-template-rows: auto;
+  }
+
+  wormhole-card {
+    grid-column: span 12;
+    @include mixins.media-breakpoint-up(lg) {
+      grid-column: span 6;
+    }
+  }
+}

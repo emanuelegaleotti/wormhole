@@ -28,12 +28,12 @@
 							"projects/wormhole/src/assets"
 						],
 						"styles": [
-							"projects/wormhole/src/styles.scss"
+							"projects/wormhole/src/sass/styles.scss"
 						],
 						"scripts": [],
 						"extraWebpackConfig": "projects/wormhole/webpack.config.js",
 						"commonChunk": false
-					},
+          },
 					"configurations": {
 						"production": {
 							"budgets": [
@@ -83,7 +83,8 @@
 					"options": {
 						"port": 4200,
 						"publicHost": "http://localhost:4200",
-						"extraWebpackConfig": "projects/wormhole/webpack.config.js"
+						"extraWebpackConfig": "projects/wormhole/webpack.config.js",
+            "proxyConfig": "proxy.conf.json"
 					}
 				},
 				"extract-i18n": {

@@ -1,0 +1,23 @@
+@mixin margin-utility {
+  @each $size, $space in $spaces {
+    &-p-#{$size} {
+      margin: $space;
+    }
+    &-pt-#{$size} {
+      margin-top: $space;
+    }
+    &-pb-#{$size} {
+      margin-bottom: $space;
+    }
+    &-pl-#{$size} {
+      margin-bottom: $space;
+    }
+    &-pr-#{$size} {
+      margin-bottom: $space;
+    }
+  }
+}
+
+.wormhole {
+  @include margin-utility;
+}

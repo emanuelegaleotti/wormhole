@@ -1,0 +1,21 @@
+<div class="wormhole-modal-header">
+  <h4>{{data['error']?.status}} - {{data['error']?.statusText}}</h4>
+  <button type="button" (click)="closeModal()">
+    Close
+  </button>
+</div>
+<div class="wormhole-modal-body">
+  <dl>
+    <dt>Message</dt>
+    <dd *ngIf="data['error']?.error.message; else genericMessage">{{data['error']?.error.message}}</dd>
+    <ng-template #genericMessage>
+      <dd>{{data['error']?.message}}</dd>
+    </ng-template>
+  </dl>
+</div>
+<div class="wormhole-modal-footer">
+  <button type="button" (click)="closeModal()">
+    Close
+  </button>
+</div>
+

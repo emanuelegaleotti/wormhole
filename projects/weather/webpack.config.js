@@ -33,7 +33,7 @@ module.exports = {
       name: 'weather',
       filename: 'weatherEntry.js',
       exposes: {
-       './Component': './projects/weather/src/app/feature/weather/weather.component.ts'
+        './Component': './projects/weather/src/app/feature/weather/weather.component.ts'
       },
 
       // For hosts (please adjust)

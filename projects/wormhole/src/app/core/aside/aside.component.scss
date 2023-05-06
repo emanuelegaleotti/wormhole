@@ -1,0 +1,22 @@
+aside {
+  grid-template-rows: auto;
+
+  nav {
+    grid-column: 1/13;
+    border: 2px solid var(--wormhole-black);
+    border-radius: var(--wormhole-border-radius-xl);
+    padding: 0 var(--wormhole-space-xs);
+    box-shadow: 2px 4px #000;
+
+    ul {
+      padding-left: 0;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+
+      li {
+        display: inline-block;
+      }
+    }
+  }
+}

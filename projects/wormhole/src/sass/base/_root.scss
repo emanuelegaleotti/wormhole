@@ -1,0 +1,17 @@
+:root{
+  @each $color, $value in $colors {
+    --wormhole-#{$color}: #{$value};
+  }
+  @each $size, $space in $spaces {
+    --wormhole-space-#{$size}: #{$space};
+  }
+  @each $name, $color in $ash-grays {
+    --wormhole-#{$name}: #{$color};
+  }
+  --wormhole-border-radius: #{$border-radius} ;
+  --wormhole-border-radius-xl: #{$border-radius-xl} ;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}

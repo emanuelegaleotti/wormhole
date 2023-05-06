@@ -1,0 +1,24 @@
+.wormhole-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: toRem(16);
+  row-gap: toRem(16);
+  padding-left: toRem(24);
+  padding-right: toRem(24);
+  @include media-breakpoint-up(md) {
+    grid-template-columns: repeat(8, 1fr);
+  }
+  @include media-breakpoint-up(lg) {
+    grid-template-columns: repeat(12, 1fr);
+    max-width: toRem(1920);
+    column-gap: toRem(24);
+    row-gap: toRem(24);
+    padding-left: toRem(120);
+    padding-right: toRem(120);
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.wormhole-grid-fluid {
+}

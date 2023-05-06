@@ -1,0 +1,17 @@
+<form [formGroup]="localeForm"
+      *transloco="let t">
+  <div class="wormhole-input">
+    <label for="wormhole-language-selector"
+           class="wormhole-text-1">
+      {{t('locale.label')}}
+    </label>
+    <select id="wormhole-language-selector"
+            class="wormhole-text-1"
+            formControlName="locale">
+      <option *ngFor="let l of locale"
+              [ngValue]="l.value">
+        {{t(l.label)}}
+      </option>
+    </select>
+  </div>
+</form>

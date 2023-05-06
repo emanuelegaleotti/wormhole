@@ -26,6 +26,14 @@ const routes: Routes = [
     loadChildren: () => import('./feature/people/people.module').then(m => m.PeopleModule)
   },
   {
+    path: 'carbon',
+    loadChildren: () => import('./feature/carbon/carbon.module').then(m => m.CarbonModule)
+  },
+  {
+    path: 'films',
+    loadChildren: () => import('./feature/films/films.module').then(m => m.FilmsModule)
+  },
+  {
     path: 'vehicles',
     loadChildren: () => loadRemoteModule({
       remoteEntry: 'http://localhost:3000/vehiclesEntry.js',

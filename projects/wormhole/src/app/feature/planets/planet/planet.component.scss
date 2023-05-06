@@ -1,0 +1,10 @@
+@use '../../../../sass/abstract/mixins' as mixins;
+section {
+  grid-template-rows: auto auto;
+  wormhole-card {
+    @include mixins.full-grid();
+  }
+  button {
+    grid-column: 11/13;
+  }
+}

@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from 'projects/wormhole/src/environments/environment';
 import { map, Observable } from 'rxjs';
 import { Swapi } from '../../shared/models/swapi-model';
 import { Person } from './person.model';
+import { environment } from '../../../environments/environment'
 
 @Injectable({
   providedIn: 'root'

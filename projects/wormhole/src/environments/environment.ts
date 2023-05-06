@@ -3,8 +3,19 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
+  baseUrl: 'http://localhost:4200',
   production: false,
-  swapiUrl: 'https://swapi.dev/api'
+  swapiUrl: 'https://swapi.dev/api',
+  climatiq: 'HSBY21AFEFM5MZQZXRCEV8XAS3M6',
+  firebaseConfig: {
+    apiKey: 'AIzaSyBwxOeQESrflf6zdEBy0VodFpdskRLVLzQ',
+    authDomain: 'wormhole-33eb5.firebaseapp.com',
+    projectId: 'wormhole-33eb5',
+    storageBucket: 'wormhole-33eb5.appspot.com',
+    messagingSenderId: '692298263135',
+    appId: '1:692298263135:web:8b3afc23bd6e2a409ac9ea',
+    measurementId: 'G-S714QFXJHS'
+  }
 }
 
 /*

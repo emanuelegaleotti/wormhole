@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
-
 import { PlanetsRoutingModule } from './planets-routing.module'
 import { PlanetsComponent } from './planets/planets.component'
 import { PlanetComponent } from './planet/planet.component'
 import { SharedModule } from '../../shared/shared.module'
-
+import { TRANSLOCO_SCOPE, TranslocoModule } from '@ngneat/transloco'
 
 @NgModule({
   declarations: [
@@ -15,7 +14,9 @@ import { SharedModule } from '../../shared/shared.module'
   imports: [
     CommonModule,
     PlanetsRoutingModule,
-    SharedModule
-  ]
+    SharedModule,
+    TranslocoModule
+  ],
+  providers: [{ provide: TRANSLOCO_SCOPE, useValue: 'planets' }]
 })
 export class PlanetsModule { }

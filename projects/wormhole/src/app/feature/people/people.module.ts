@@ -8,6 +8,7 @@ import { PEOPLE_KEY } from './people-state/people.selector';
 import { PeopleReducers } from './people-state/people.reducer';
 import { SharedModule } from '../../shared/shared.module';
 import { StoreModule } from '@ngrx/store';
+import { TRANSLOCO_SCOPE, TranslocoModule } from '@ngneat/transloco'
 
 
 @NgModule({
@@ -19,8 +20,9 @@ import { StoreModule } from '@ngrx/store';
     CommonModule,
     PeopleRoutingModule,
     SharedModule,
-    StoreModule.forFeature(PEOPLE_KEY, PeopleReducers)
-
-  ]
+    StoreModule.forFeature(PEOPLE_KEY, PeopleReducers),
+    TranslocoModule
+  ],
+  providers:[{ provide: TRANSLOCO_SCOPE, useValue: 'people' }]
 })
 export class PeopleModule { }

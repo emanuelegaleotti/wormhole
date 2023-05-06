@@ -1,0 +1,29 @@
+{
+  "menu": {
+    "planets": "Pianeti",
+    "starships": "Astronavi",
+    "people": "Persone",
+    "vehicles": "Veicoli",
+    "carbon": "Impatto ecologico",
+    "films": "Film"
+  },
+  "language": {
+    "en": "Inglese",
+    "it": "Italiano"
+  },
+  "locale": {
+    "label": "Seleziona la lingua"
+  },
+  "button": {
+    "detail": "Dettagli",
+    "back": "Indietro"
+  },
+  "homepage": {
+    "weather": {
+      "title": "Meteo locale"
+    },
+    "cityWeather": {
+      "title": "Meteo per città"
+    }
+  }
+}

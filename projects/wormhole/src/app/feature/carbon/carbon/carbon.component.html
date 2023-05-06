@@ -1,0 +1,18 @@
+<section class="wormhole-grid" *transloco="let t">
+  <h2>
+    {{t('carbon.carbon.title')}}
+  </h2>
+  <article>
+    <form [formGroup]="siteForm" (ngSubmit)="getCarbon()">
+      <div class="wormhole-input">
+        <label for="">Site search</label>
+        <input type="text" formControlName="site">
+      </div>
+      <button type="submit">Cerca</button>
+    </form>
+    <ul>
+      <dt></dt>
+      <dl>{{carbonData | json}}</dl>
+    </ul>
+  </article>
+</section>

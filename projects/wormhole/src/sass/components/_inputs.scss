@@ -1,0 +1,29 @@
+.wormhole-input {
+  label {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;
+    margin-bottom: var(--wormhole-space-4xs);
+  }
+
+  input {
+    width: 100%;
+    min-height: $input-height;
+    letter-spacing: .009375em;
+    padding: 0 var(--wormhole-space-2xs);
+    border: 2px solid $black;
+    border-radius: $border-radius;
+    background: transparent;
+    @include placeholder($black-100)
+  }
+
+  select {
+    width: 100%;
+    min-height: $input-height;
+    letter-spacing: .009375em;
+    padding: 0 var(--wormhole-space-2xs);
+    border: 2px solid $black;
+    border-radius: $border-radius;
+    background: transparent;
+  }
+}

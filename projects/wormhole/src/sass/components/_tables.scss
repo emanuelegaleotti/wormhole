@@ -1,0 +1,37 @@
+table {
+  border: 2px solid var(--wormhole-black);
+  border-radius: var(--wormhole-border-radius);
+  caption-side: bottom;
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+  thead {
+    border-color: inherit;
+    border-style: solid;
+    border-width: 0;
+    tr {
+      border-bottom: 2px solid var(--wormhole-black);
+      th {
+        border-color: inherit;
+        border-style: solid;
+        border-width: 0;
+        border-bottom: 2px solid var(--wormhole-black);
+        padding: var(--wormhole-space-2xs) var(--wormhole-space-2xs);
+        text-align: inherit;
+        text-align: -webkit-match-parent;
+      }
+    }
+  }
+  tbody {
+    border-color: inherit;
+    border-style: solid;
+    border-width: 0;
+    tr {
+      td {
+        padding: var(--wormhole-space-2xs) var(--wormhole-space-2xs);
+        text-align: inherit;
+        text-align: -webkit-match-parent;
+      }
+    }
+  }
+}

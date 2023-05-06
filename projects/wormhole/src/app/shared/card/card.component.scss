@@ -1,0 +1,14 @@
+.wormhole-card {
+  border: 2px solid var(--wormhole-black);
+  border-radius: var(--wormhole-border-radius);
+  box-shadow: 2px 4px var(--wormhole-black);
+
+  .wormhole-card-header {
+    border-bottom: 2px solid var(--wormhole-black);
+    padding: var(--wormhole-space-2xs);
+  }
+
+  .wormhole-card-body {
+    padding: var(--wormhole-space-2xs);
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "menu": {
+    "planets": "Planets",
+    "starships": "Starships",
+    "people": "People",
+    "vehicles": "Vehicles",
+    "carbon": "Carbon impact",
+    "films": "Films"
+  },
+  "language": {
+    "en": "English",
+    "it": "Italian"
+  },
+  "locale": {
+    "label": "Select language"
+  },
+  "button": {
+    "detail": "Detail",
+    "back": "Back"
+  },
+  "homepage": {
+    "weather": {
+      "title": "Local weather"
+    },
+    "cityWeather": {
+      "title": "Weather by city"
+    }
+  }
+}

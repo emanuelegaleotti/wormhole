@@ -35,10 +35,13 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 - Weather: micro FE components
 - City-Weather: micro fe components with reactive form
 - Loader: Http interceptor with ngrx and dynamic components
+- Http error: Http interceptor
+- Compodoc
 
 ## TODO 
-- Http error: Http interceptor and dynamic components
 - Components lib
-- Compodoc
 - Cypress
-- firestore
+- Firestore
+- Sentry
+- CVA
+- 

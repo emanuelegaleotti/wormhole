@@ -1,0 +1,16 @@
+main {
+  background-color: $ash-gray-100;
+  min-height: calc(100vh - $header-xs-height);
+  @include media-breakpoint-up(md) {
+    min-height: calc(100vh - $header-md-height);
+  }
+  @include media-breakpoint-up(lg) {
+    min-height: calc(100vh - $header-lg-height);
+  }
+
+  section {
+    background-color: $ash-gray-100;
+    padding-top: var(--wormhole-space-sm);
+    padding-bottom: var(--wormhole-space-3xl);
+  }
+}
