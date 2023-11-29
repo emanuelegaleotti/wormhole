@@ -1,0 +1,48 @@
+$breakpoints-map: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1200px,
+  xxl: 1400px
+) !default;
+
+@function breakpoint-min($name, $breakpoints: $breakpoints-map) {
+  $min: map-get($breakpoints, $name);
+  @return if($min != 0, $min, null);
+}
+
+@mixin media-breakpoint-up($name, $breakpoints: $breakpoints-map) {
+  $min: breakpoint-min($name, $breakpoints);
+  @if $min {
+    @media (min-width: $min) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+@mixin full-grid() {
+  grid-column: 1/5;
+  @include media-breakpoint-up(md) {
+    grid-column: 1/9;
+  }
+  @include media-breakpoint-up(lg) {
+    grid-column: 1/13;
+  }
+}
+@mixin placeholder($color){
+  &::placeholder {
+    color: $color;
+    opacity: 1;
+  }
+
+  &:-ms-input-placeholder {
+    color: $color;
+  }
+
+  &::-ms-input-placeholder {
+    color: $color;
+  }
+}

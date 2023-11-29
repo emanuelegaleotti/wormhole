@@ -3,7 +3,8 @@
   grid-template-rows: auto auto;
   grid-template-columns: auto auto 2fr auto auto;
   align-items: center;
-justify-content: center;
+  justify-content: center;
+
   h4 {
     grid-column: 1/6;
   }
@@ -30,6 +31,7 @@ justify-content: center;
       }
     }
   }
+
   button {
     padding: var(--wormhole-space-2xs);
   }

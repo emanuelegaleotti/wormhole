@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  swapiUrl: 'https://swapi.dev/api'
+  swapiUrl: 'https://swapi.dev/api',
+  baseUrl: 'http://localhost:4200'
 };
 
 /*

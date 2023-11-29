@@ -27,28 +27,17 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-
-      // For remotes (please adjust)
-      // name: "wormhole",
-      // filename: "remoteEntry.js",
-      // exposes: {
-      //     './Component': './projects/wormhole/src/app/app.component.ts',
-      // },
-
-      // For hosts (please adjust)
       remotes: {
         vehicles: 'vehicles@http://localhost:3000/vehiclesEntry.js',
         weather: 'weather@http://localhost:3300/weatherEntry.js',
         cityWeather: 'cityWeather@http://localhost:3600/cityWeatherEntry.js'
-
       },
-
       shared: share({
         '@angular/core': { singleton: true, strictVersion: true, requiredVersion: 'auto' },
         '@angular/common': { singleton: true, strictVersion: true, requiredVersion: 'auto' },
         '@angular/common/http': { singleton: true, strictVersion: true, requiredVersion: 'auto' },
         '@angular/router': { singleton: true, strictVersion: true, requiredVersion: 'auto' },
-
+        '@ngneat/transloco': { singleton: true, strictVersion: true, requiredVersion: 'auto' },
         ...sharedMappings.getDescriptors()
       })
 

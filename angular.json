@@ -1,490 +1,610 @@
 {
-	"$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-	"version": 1,
-	"newProjectRoot": "projects",
-	"projects": {
-		"Wormhole": {
-			"projectType": "application",
-			"schematics": {
-				"@schematics/angular:component": {
-					"style": "scss"
-				}
-			},
-			"root": "projects/wormhole",
-			"sourceRoot": "projects/wormhole/src",
-			"prefix": "wormhole",
-			"architect": {
-				"build": {
-					"builder": "ngx-build-plus:browser",
-					"options": {
-						"outputPath": "dist/wormhole",
-						"index": "projects/wormhole/src/index.html",
-						"main": "projects/wormhole/src/main.ts",
-						"polyfills": "projects/wormhole/src/polyfills.ts",
-						"tsConfig": "projects/wormhole/tsconfig.app.json",
-						"inlineStyleLanguage": "scss",
-						"assets": [
-							"projects/wormhole/src/favicon.ico",
-							"projects/wormhole/src/assets"
-						],
-						"styles": [
-							"projects/wormhole/src/sass/styles.scss"
-						],
-						"scripts": [],
-						"extraWebpackConfig": "projects/wormhole/webpack.config.js",
-						"commonChunk": false
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "Wormhole": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/wormhole",
+      "sourceRoot": "projects/wormhole/src",
+      "prefix": "wormhole",
+      "architect": {
+        "build": {
+          "builder": "ngx-build-plus:browser",
+          "options": {
+            "outputPath": "dist/wormhole",
+            "index": "projects/wormhole/src/index.html",
+            "main": "projects/wormhole/src/main.ts",
+            "polyfills": "projects/wormhole/src/polyfills.ts",
+            "tsConfig": "projects/wormhole/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/wormhole/src/favicon.ico",
+              "projects/wormhole/src/assets"
+            ],
+            "styles": [
+              "projects/wormhole/src/sass/styles.scss"
+            ],
+            "scripts": [],
+            "extraWebpackConfig": "projects/wormhole/webpack.config.js",
+            "commonChunk": false
           },
-					"configurations": {
-						"production": {
-							"budgets": [
-								{
-									"type": "initial",
-									"maximumWarning": "500kb",
-									"maximumError": "1mb"
-								},
-								{
-									"type": "anyComponentStyle",
-									"maximumWarning": "2kb",
-									"maximumError": "4kb"
-								}
-							],
-							"fileReplacements": [
-								{
-									"replace": "projects/wormhole/src/environments/environment.ts",
-									"with": "projects/wormhole/src/environments/environment.prod.ts"
-								}
-							],
-							"outputHashing": "all",
-							"extraWebpackConfig": "projects/wormhole/webpack.prod.config.js"
-						},
-						"development": {
-							"buildOptimizer": false,
-							"optimization": false,
-							"vendorChunk": true,
-							"extractLicenses": false,
-							"sourceMap": true,
-							"namedChunks": true
-						}
-					},
-					"defaultConfiguration": "production"
-				},
-				"serve": {
-					"builder": "ngx-build-plus:dev-server",
-					"configurations": {
-						"production": {
-							"browserTarget": "Wormhole:build:production",
-							"extraWebpackConfig": "projects/wormhole/webpack.prod.config.js"
-						},
-						"development": {
-							"browserTarget": "Wormhole:build:development"
-						}
-					},
-					"defaultConfiguration": "development",
-					"options": {
-						"port": 4200,
-						"publicHost": "http://localhost:4200",
-						"extraWebpackConfig": "projects/wormhole/webpack.config.js",
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/wormhole/src/environments/environment.ts",
+                  "with": "projects/wormhole/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all",
+              "extraWebpackConfig": "projects/wormhole/webpack.prod.config.js"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "ngx-build-plus:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "Wormhole:build:production",
+              "extraWebpackConfig": "projects/wormhole/webpack.prod.config.js"
+            },
+            "development": {
+              "browserTarget": "Wormhole:build:development"
+            }
+          },
+          "defaultConfiguration": "development",
+          "options": {
+            "port": 4200,
+            "publicHost": "http://localhost:4200",
+            "extraWebpackConfig": "projects/wormhole/webpack.config.js",
             "proxyConfig": "proxy.conf.json"
-					}
-				},
-				"extract-i18n": {
-					"builder": "ngx-build-plus:extract-i18n",
-					"options": {
-						"browserTarget": "Wormhole:build",
-						"extraWebpackConfig": "projects/wormhole/webpack.config.js"
-					}
-				},
-				"test": {
-					"builder": "@angular-devkit/build-angular:karma",
-					"options": {
-						"main": "projects/wormhole/src/test.ts",
-						"polyfills": "projects/wormhole/src/polyfills.ts",
-						"tsConfig": "projects/wormhole/tsconfig.spec.json",
-						"karmaConfig": "projects/wormhole/karma.conf.js",
-						"inlineStyleLanguage": "scss",
-						"assets": [
-							"projects/wormhole/src/favicon.ico",
-							"projects/wormhole/src/assets"
-						],
-						"styles": [
-							"projects/wormhole/src/styles.scss"
-						],
-						"scripts": []
-					}
-				},
-				"lint": {
-					"builder": "@angular-eslint/builder:lint",
-					"options": {
-						"lintFilePatterns": [
-							"projects/wormhole/**/*.ts",
-							"projects/wormhole/**/*.html"
-						]
-					}
-				}
-			}
-		},
-		"vehicles": {
-			"projectType": "application",
-			"schematics": {
-				"@schematics/angular:component": {
-					"style": "scss"
-				}
-			},
-			"root": "projects/vehicles",
-			"sourceRoot": "projects/vehicles/src",
-			"prefix": "app",
-			"architect": {
-				"build": {
-					"builder": "ngx-build-plus:browser",
-					"options": {
-						"outputPath": "dist/vehicles",
-						"index": "projects/vehicles/src/index.html",
-						"main": "projects/vehicles/src/main.ts",
-						"polyfills": "projects/vehicles/src/polyfills.ts",
-						"tsConfig": "projects/vehicles/tsconfig.app.json",
-						"inlineStyleLanguage": "scss",
-						"assets": [
-							"projects/vehicles/src/favicon.ico",
-							"projects/vehicles/src/assets"
-						],
-						"styles": [
-							"projects/vehicles/src/styles.scss"
-						],
-						"scripts": [],
-						"extraWebpackConfig": "projects/vehicles/webpack.config.js",
-						"commonChunk": false
-					},
-					"configurations": {
-						"production": {
-							"budgets": [
-								{
-									"type": "initial",
-									"maximumWarning": "500kb",
-									"maximumError": "1mb"
-								},
-								{
-									"type": "anyComponentStyle",
-									"maximumWarning": "2kb",
-									"maximumError": "4kb"
-								}
-							],
-							"fileReplacements": [
-								{
-									"replace": "projects/vehicles/src/environments/environment.ts",
-									"with": "projects/vehicles/src/environments/environment.prod.ts"
-								}
-							],
-							"outputHashing": "all",
-							"extraWebpackConfig": "projects/vehicles/webpack.prod.config.js"
-						},
-						"development": {
-							"buildOptimizer": false,
-							"optimization": false,
-							"vendorChunk": true,
-							"extractLicenses": false,
-							"sourceMap": true,
-							"namedChunks": true
-						}
-					},
-					"defaultConfiguration": "production"
-				},
-				"serve": {
-					"builder": "ngx-build-plus:dev-server",
-					"configurations": {
-						"production": {
-							"browserTarget": "vehicles:build:production",
-							"extraWebpackConfig": "projects/vehicles/webpack.prod.config.js"
-						},
-						"development": {
-							"browserTarget": "vehicles:build:development"
-						}
-					},
-					"defaultConfiguration": "development",
-					"options": {
-						"port": 3000,
-						"publicHost": "http://localhost:3000",
-						"extraWebpackConfig": "projects/vehicles/webpack.config.js"
-					}
-				},
-				"extract-i18n": {
-					"builder": "ngx-build-plus:extract-i18n",
-					"options": {
-						"browserTarget": "vehicles:build",
-						"extraWebpackConfig": "projects/vehicles/webpack.config.js"
-					}
-				},
-				"test": {
-					"builder": "@angular-devkit/build-angular:karma",
-					"options": {
-						"main": "projects/vehicles/src/test.ts",
-						"polyfills": "projects/vehicles/src/polyfills.ts",
-						"tsConfig": "projects/vehicles/tsconfig.spec.json",
-						"karmaConfig": "projects/vehicles/karma.conf.js",
-						"inlineStyleLanguage": "scss",
-						"assets": [
-							"projects/vehicles/src/favicon.ico",
-							"projects/vehicles/src/assets"
-						],
-						"styles": [
-							"projects/vehicles/src/styles.scss"
-						],
-						"scripts": []
-					}
-				},
-				"lint": {
-					"builder": "@angular-eslint/builder:lint",
-					"options": {
-						"lintFilePatterns": [
-							"projects/vehicles/**/*.ts",
-							"projects/vehicles/**/*.html"
-						]
-					}
-				}
-			}
-		},
-		"weather": {
-			"projectType": "application",
-			"schematics": {
-				"@schematics/angular:component": {
-					"style": "scss"
-				}
-			},
-			"root": "projects/weather",
-			"sourceRoot": "projects/weather/src",
-			"prefix": "app",
-			"architect": {
-				"build": {
-					"builder": "ngx-build-plus:browser",
-					"options": {
-						"outputPath": "dist/weather",
-						"index": "projects/weather/src/index.html",
-						"main": "projects/weather/src/main.ts",
-						"polyfills": "projects/weather/src/polyfills.ts",
-						"tsConfig": "projects/weather/tsconfig.app.json",
-						"inlineStyleLanguage": "scss",
-						"assets": [
-							"projects/weather/src/favicon.ico",
-							"projects/weather/src/assets"
-						],
-						"styles": [
-							"projects/weather/src/styles.scss"
-						],
-						"scripts": [],
-						"extraWebpackConfig": "projects/weather/webpack.config.js",
-						"commonChunk": false
-					},
-					"configurations": {
-						"production": {
-							"budgets": [
-								{
-									"type": "initial",
-									"maximumWarning": "500kb",
-									"maximumError": "1mb"
-								},
-								{
-									"type": "anyComponentStyle",
-									"maximumWarning": "2kb",
-									"maximumError": "4kb"
-								}
-							],
-							"fileReplacements": [
-								{
-									"replace": "projects/weather/src/environments/environment.ts",
-									"with": "projects/weather/src/environments/environment.prod.ts"
-								}
-							],
-							"outputHashing": "all",
-							"extraWebpackConfig": "projects/weather/webpack.prod.config.js"
-						},
-						"development": {
-							"buildOptimizer": false,
-							"optimization": false,
-							"vendorChunk": true,
-							"extractLicenses": false,
-							"sourceMap": true,
-							"namedChunks": true
-						}
-					},
-					"defaultConfiguration": "production"
-				},
-				"serve": {
-					"builder": "ngx-build-plus:dev-server",
-					"configurations": {
-						"production": {
-							"browserTarget": "weather:build:production",
-							"extraWebpackConfig": "projects/weather/webpack.prod.config.js"
-						},
-						"development": {
-							"browserTarget": "weather:build:development"
-						}
-					},
-					"defaultConfiguration": "development",
-					"options": {
-						"port": 3300,
-						"publicHost": "http://localhost:3300",
-						"extraWebpackConfig": "projects/weather/webpack.config.js"
-					}
-				},
-				"extract-i18n": {
-					"builder": "ngx-build-plus:extract-i18n",
-					"options": {
-						"browserTarget": "weather:build",
-						"extraWebpackConfig": "projects/weather/webpack.config.js"
-					}
-				},
-				"test": {
-					"builder": "@angular-devkit/build-angular:karma",
-					"options": {
-						"main": "projects/weather/src/test.ts",
-						"polyfills": "projects/weather/src/polyfills.ts",
-						"tsConfig": "projects/weather/tsconfig.spec.json",
-						"karmaConfig": "projects/weather/karma.conf.js",
-						"inlineStyleLanguage": "scss",
-						"assets": [
-							"projects/weather/src/favicon.ico",
-							"projects/weather/src/assets"
-						],
-						"styles": [
-							"projects/weather/src/styles.scss"
-						],
-						"scripts": []
-					}
-				},
-				"lint": {
-					"builder": "@angular-eslint/builder:lint",
-					"options": {
-						"lintFilePatterns": [
-							"projects/weather/**/*.ts",
-							"projects/weather/**/*.html"
-						]
-					}
-				}
-			}
-		},
-		"cityWeather": {
-			"projectType": "application",
-			"schematics": {
-				"@schematics/angular:component": {
-					"style": "scss"
-				}
-			},
-			"root": "projects/city-weather",
-			"sourceRoot": "projects/city-weather/src",
-			"prefix": "app",
-			"architect": {
-				"build": {
-					"builder": "ngx-build-plus:browser",
-					"options": {
-						"outputPath": "dist/city-weather",
-						"index": "projects/city-weather/src/index.html",
-						"main": "projects/city-weather/src/main.ts",
-						"polyfills": "projects/city-weather/src/polyfills.ts",
-						"tsConfig": "projects/city-weather/tsconfig.app.json",
-						"inlineStyleLanguage": "scss",
-						"assets": [
-							"projects/city-weather/src/favicon.ico",
-							"projects/city-weather/src/assets"
-						],
-						"styles": [
-							"projects/city-weather/src/styles.scss"
-						],
-						"scripts": [],
-						"extraWebpackConfig": "projects/city-weather/webpack.config.js",
-						"commonChunk": false
-					},
-					"configurations": {
-						"production": {
-							"budgets": [
-								{
-									"type": "initial",
-									"maximumWarning": "500kb",
-									"maximumError": "1mb"
-								},
-								{
-									"type": "anyComponentStyle",
-									"maximumWarning": "2kb",
-									"maximumError": "4kb"
-								}
-							],
-							"fileReplacements": [
-								{
-									"replace": "projects/city-weather/src/environments/environment.ts",
-									"with": "projects/city-weather/src/environments/environment.prod.ts"
-								}
-							],
-							"outputHashing": "all",
-							"extraWebpackConfig": "projects/city-weather/webpack.prod.config.js"
-						},
-						"development": {
-							"buildOptimizer": false,
-							"optimization": false,
-							"vendorChunk": true,
-							"extractLicenses": false,
-							"sourceMap": true,
-							"namedChunks": true
-						}
-					},
-					"defaultConfiguration": "production"
-				},
-				"serve": {
-					"builder": "ngx-build-plus:dev-server",
-					"configurations": {
-						"production": {
-							"browserTarget": "cityWeather:build:production",
-							"extraWebpackConfig": "projects/city-weather/webpack.prod.config.js"
-						},
-						"development": {
-							"browserTarget": "cityWeather:build:development"
-						}
-					},
-					"defaultConfiguration": "development",
-					"options": {
-						"port": 3600,
-						"publicHost": "http://localhost:3600",
-						"extraWebpackConfig": "projects/city-weather/webpack.config.js"
-					}
-				},
-				"extract-i18n": {
-					"builder": "ngx-build-plus:extract-i18n",
-					"options": {
-						"browserTarget": "cityWeather:build",
-						"extraWebpackConfig": "projects/city-weather/webpack.config.js"
-					}
-				},
-				"test": {
-					"builder": "@angular-devkit/build-angular:karma",
-					"options": {
-						"main": "projects/city-weather/src/test.ts",
-						"polyfills": "projects/city-weather/src/polyfills.ts",
-						"tsConfig": "projects/city-weather/tsconfig.spec.json",
-						"karmaConfig": "projects/city-weather/karma.conf.js",
-						"inlineStyleLanguage": "scss",
-						"assets": [
-							"projects/city-weather/src/favicon.ico",
-							"projects/city-weather/src/assets"
-						],
-						"styles": [
-							"projects/city-weather/src/styles.scss"
-						],
-						"scripts": []
-					}
-				},
-				"lint": {
-					"builder": "@angular-eslint/builder:lint",
-					"options": {
-						"lintFilePatterns": [
-							"projects/city-weather/**/*.ts",
-							"projects/city-weather/**/*.html"
-						]
-					}
-				}
-			}
-		}
-	},
-	"cli": {
-		"analytics": "86ddefb3-6bf3-4127-9124-14e35269bdcb",
-		"schematicCollections": [
-			"@angular-eslint/schematics"
-		]
-	}
+          }
+        },
+        "extract-i18n": {
+          "builder": "ngx-build-plus:extract-i18n",
+          "options": {
+            "browserTarget": "Wormhole:build",
+            "extraWebpackConfig": "projects/wormhole/webpack.config.js"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/wormhole/src/test.ts",
+            "polyfills": "projects/wormhole/src/polyfills.ts",
+            "tsConfig": "projects/wormhole/tsconfig.spec.json",
+            "karmaConfig": "projects/wormhole/karma.conf.js",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/wormhole/src/favicon.ico",
+              "projects/wormhole/src/assets"
+            ],
+            "styles": [
+              "projects/wormhole/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/wormhole/**/*.ts",
+              "projects/wormhole/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "vehicles": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/vehicles",
+      "sourceRoot": "projects/vehicles/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "ngx-build-plus:browser",
+          "options": {
+            "outputPath": "dist/vehicles",
+            "index": "projects/vehicles/src/index.html",
+            "main": "projects/vehicles/src/main.ts",
+            "polyfills": "projects/vehicles/src/polyfills.ts",
+            "tsConfig": "projects/vehicles/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/vehicles/src/favicon.ico",
+              "projects/vehicles/src/assets"
+            ],
+            "styles": [
+              "projects/vehicles/src/sass/styles.scss"
+            ],
+            "scripts": [],
+            "extraWebpackConfig": "projects/vehicles/webpack.config.js",
+            "commonChunk": false
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/vehicles/src/environments/environment.ts",
+                  "with": "projects/vehicles/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all",
+              "extraWebpackConfig": "projects/vehicles/webpack.prod.config.js"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "ngx-build-plus:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "vehicles:build:production",
+              "extraWebpackConfig": "projects/vehicles/webpack.prod.config.js"
+            },
+            "development": {
+              "browserTarget": "vehicles:build:development"
+            }
+          },
+          "defaultConfiguration": "development",
+          "options": {
+            "port": 3000,
+            "publicHost": "http://localhost:3000",
+            "extraWebpackConfig": "projects/vehicles/webpack.config.js"
+          }
+        },
+        "extract-i18n": {
+          "builder": "ngx-build-plus:extract-i18n",
+          "options": {
+            "browserTarget": "vehicles:build",
+            "extraWebpackConfig": "projects/vehicles/webpack.config.js"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/vehicles/src/test.ts",
+            "polyfills": "projects/vehicles/src/polyfills.ts",
+            "tsConfig": "projects/vehicles/tsconfig.spec.json",
+            "karmaConfig": "projects/vehicles/karma.conf.js",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/vehicles/src/favicon.ico",
+              "projects/vehicles/src/assets"
+            ],
+            "styles": [
+              "projects/vehicles/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/vehicles/**/*.ts",
+              "projects/vehicles/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "weather": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/weather",
+      "sourceRoot": "projects/weather/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "ngx-build-plus:browser",
+          "options": {
+            "outputPath": "dist/weather",
+            "index": "projects/weather/src/index.html",
+            "main": "projects/weather/src/main.ts",
+            "polyfills": "projects/weather/src/polyfills.ts",
+            "tsConfig": "projects/weather/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/weather/src/favicon.ico",
+              "projects/weather/src/assets"
+            ],
+            "styles": [
+              "projects/weather/src/styles.scss"
+            ],
+            "scripts": [],
+            "extraWebpackConfig": "projects/weather/webpack.config.js",
+            "commonChunk": false
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/weather/src/environments/environment.ts",
+                  "with": "projects/weather/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all",
+              "extraWebpackConfig": "projects/weather/webpack.prod.config.js"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "ngx-build-plus:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "weather:build:production",
+              "extraWebpackConfig": "projects/weather/webpack.prod.config.js"
+            },
+            "development": {
+              "browserTarget": "weather:build:development"
+            }
+          },
+          "defaultConfiguration": "development",
+          "options": {
+            "port": 3300,
+            "publicHost": "http://localhost:3300",
+            "extraWebpackConfig": "projects/weather/webpack.config.js"
+          }
+        },
+        "extract-i18n": {
+          "builder": "ngx-build-plus:extract-i18n",
+          "options": {
+            "browserTarget": "weather:build",
+            "extraWebpackConfig": "projects/weather/webpack.config.js"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/weather/src/test.ts",
+            "polyfills": "projects/weather/src/polyfills.ts",
+            "tsConfig": "projects/weather/tsconfig.spec.json",
+            "karmaConfig": "projects/weather/karma.conf.js",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/weather/src/favicon.ico",
+              "projects/weather/src/assets"
+            ],
+            "styles": [
+              "projects/weather/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/weather/**/*.ts",
+              "projects/weather/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "cityWeather": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/city-weather",
+      "sourceRoot": "projects/city-weather/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "ngx-build-plus:browser",
+          "options": {
+            "outputPath": "dist/city-weather",
+            "index": "projects/city-weather/src/index.html",
+            "main": "projects/city-weather/src/main.ts",
+            "polyfills": "projects/city-weather/src/polyfills.ts",
+            "tsConfig": "projects/city-weather/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/city-weather/src/favicon.ico",
+              "projects/city-weather/src/assets"
+            ],
+            "styles": [
+              "projects/city-weather/src/styles.scss"
+            ],
+            "scripts": [],
+            "extraWebpackConfig": "projects/city-weather/webpack.config.js",
+            "commonChunk": false
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/city-weather/src/environments/environment.ts",
+                  "with": "projects/city-weather/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all",
+              "extraWebpackConfig": "projects/city-weather/webpack.prod.config.js"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "ngx-build-plus:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "cityWeather:build:production",
+              "extraWebpackConfig": "projects/city-weather/webpack.prod.config.js"
+            },
+            "development": {
+              "browserTarget": "cityWeather:build:development"
+            }
+          },
+          "defaultConfiguration": "development",
+          "options": {
+            "port": 3600,
+            "publicHost": "http://localhost:3600",
+            "extraWebpackConfig": "projects/city-weather/webpack.config.js"
+          }
+        },
+        "extract-i18n": {
+          "builder": "ngx-build-plus:extract-i18n",
+          "options": {
+            "browserTarget": "cityWeather:build",
+            "extraWebpackConfig": "projects/city-weather/webpack.config.js"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/city-weather/src/test.ts",
+            "polyfills": "projects/city-weather/src/polyfills.ts",
+            "tsConfig": "projects/city-weather/tsconfig.spec.json",
+            "karmaConfig": "projects/city-weather/karma.conf.js",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/city-weather/src/favicon.ico",
+              "projects/city-weather/src/assets"
+            ],
+            "styles": [
+              "projects/city-weather/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/city-weather/**/*.ts",
+              "projects/city-weather/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "lorentz": {
+      "projectType": "library",
+      "root": "projects/lorentz",
+      "sourceRoot": "projects/lorentz/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/lorentz/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/lorentz/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/lorentz/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/lorentz/src/test.ts",
+            "tsConfig": "projects/lorentz/tsconfig.spec.json",
+            "karmaConfig": "projects/lorentz/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/lorentz/**/*.ts",
+              "projects/lorentz/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "lorentz-components": {
+      "projectType": "library",
+      "root": "projects/lorentz-components",
+      "sourceRoot": "projects/lorentz-components/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/lorentz-components/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/lorentz-components/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/lorentz-components/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/lorentz-components/src/test.ts",
+            "tsConfig": "projects/lorentz-components/tsconfig.spec.json",
+            "karmaConfig": "projects/lorentz-components/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/lorentz-components/**/*.ts",
+              "projects/lorentz-components/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "lorentz-event-bus": {
+      "projectType": "library",
+      "root": "projects/lorentz-event-bus",
+      "sourceRoot": "projects/lorentz-event-bus/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/lorentz-event-bus/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/lorentz-event-bus/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/lorentz-event-bus/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/lorentz-event-bus/src/test.ts",
+            "tsConfig": "projects/lorentz-event-bus/tsconfig.spec.json",
+            "karmaConfig": "projects/lorentz-event-bus/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/lorentz-event-bus/**/*.ts",
+              "projects/lorentz-event-bus/**/*.html"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "analytics": "86ddefb3-6bf3-4127-9124-14e35269bdcb",
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
+  }
 }

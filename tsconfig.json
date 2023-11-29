@@ -8,6 +8,17 @@
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
+    "paths": {
+      "lorentz": [
+        "dist/lorentz"
+      ],
+      "lorentz-components": [
+        "dist/lorentz-components"
+      ],
+      "lorentz-event-bus": [
+        "dist/lorentz-event-bus"
+      ]
+    },
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
     "declaration": false,

@@ -10,18 +10,23 @@ import { StarshipsReducers } from './starships-state/starships.reducer'
 import { EffectsModule } from '@ngrx/effects'
 import { StarshipsEffects } from './starships-state/effects/starship.effects'
 import { SharedModule } from "../../shared/shared.module";
+import { LorentzComponentsModule } from '../../../../../lorentz-components'
+import { TranslocoModule } from '@ngneat/transloco'
+
 
 @NgModule({
     declarations: [
         StarshipsComponent,
         StarshipComponent
     ],
-    imports: [
-        CommonModule,
-        StarshipsRoutingModule,
-        StoreModule.forFeature(STARSHIPS_KEY, StarshipsReducers),
-        EffectsModule.forFeature([StarshipsEffects]),
-        SharedModule
-    ]
+  imports: [
+    CommonModule,
+    StarshipsRoutingModule,
+    StoreModule.forFeature(STARSHIPS_KEY, StarshipsReducers),
+    EffectsModule.forFeature([StarshipsEffects]),
+    SharedModule,
+    LorentzComponentsModule,
+    TranslocoModule
+  ]
 })
 export class StarshipsModule { }

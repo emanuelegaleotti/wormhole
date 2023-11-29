@@ -1,7 +1,7 @@
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin')
 const mf = require('@angular-architects/module-federation/webpack')
 const path = require('path')
-const share = mf.share
+const { shareAll } = require('@angular-architects/module-federation/webpack')
 
 const sharedMappings = new mf.SharedMappings()
 sharedMappings.register(
@@ -27,29 +27,19 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      library: { type: 'var', name: 'vehicles' },
-
-      // For remotes (please adjust)
       name: 'vehicles',
       filename: 'vehiclesEntry.js',
       exposes: {
         './VehiclesModule': './projects/vehicles/src/app/vehicles/vehicles.module.ts'
       },
-
-      // For hosts (please adjust)
-      // remotes: {
-      //     "wormhole": "http://localhost:4200/remoteEntry.js",
-
-      // },
-
-      shared: share({
-        '@angular/core': { singleton: true, strictVersion: true, requiredVersion: 'auto' },
-        '@angular/common': { singleton: true, strictVersion: true, requiredVersion: 'auto' },
-        '@angular/common/http': { singleton: true, strictVersion: true, requiredVersion: 'auto' },
-        '@angular/router': { singleton: true, strictVersion: true, requiredVersion: 'auto' },
-
+      shared: {
+        ...shareAll({
+          singleton: true,
+          strictVersion: true,
+          requiredVersion: 'auto'
+        }),
         ...sharedMappings.getDescriptors()
-      })
+      }
 
     }),
     sharedMappings.getPlugin()

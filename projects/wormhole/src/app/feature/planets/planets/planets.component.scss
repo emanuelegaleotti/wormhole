@@ -3,15 +3,18 @@
 section {
   grid-template-rows: auto auto;
 
-  wormhole-card {
+  article {
     @include mixins.full-grid();
 
-    wormhole-pager {
-      display: flex;
-      justify-content: flex-end;
+    table {
+      width: 100%;
     }
 
-    .wormhole-alert {
+    lorentz-pager {
+      display: inline-block;
+    }
+
+    &.wormhole-alert {
       @include mixins.full-grid();
     }
   }

@@ -1,21 +1,28 @@
-<div *ngIf="vehicles.length; else noResult">
+<section class="wormhole-grid" *transloco="let t">
+  <h2>
+    {{t('vehicles.vehicles.title')}}
+  </h2>
+  <article *ngIf="vehicles.length; else noResult">
     <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let p of vehicles">
-                <td>{{p.id}}</td>
-                <td>{{p.name}}</td>
-                <td><a [routerLink]="p.id">Detail</a></td>
-        </tbody>
+      <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let p of vehicles">
+        <td>{{p.id}}</td>
+        <td>{{p.name}}</td>
+        <td><a [routerLink]="p.id">Detail</a></td>
+      </tbody>
     </table>
-   <app-pager [totalItems]="allVehicles" (whenPageSelected)="setPage($event)"></app-pager>
-</div>
-<ng-template #noResult>
-    <div class="alert">No result</div>
-</ng-template>
+    <lorentz-pager [totalItems]="allVehicles" (whenPageSelected)="setPage($event)"></lorentz-pager>
+  </article>
+  <ng-template #noResult>
+    <article class="wormhole-alert">
+      {{t('vehicles.vehicles.noResult')}}
+    </article>
+  </ng-template>
+</section>

@@ -5,6 +5,8 @@ import { PlanetsComponent } from './planets/planets.component'
 import { PlanetComponent } from './planet/planet.component'
 import { SharedModule } from '../../shared/shared.module'
 import { TRANSLOCO_SCOPE, TranslocoModule } from '@ngneat/transloco'
+import { LorentzComponentsModule } from '../../../../../lorentz-components'
+
 
 @NgModule({
   declarations: [
@@ -15,7 +17,8 @@ import { TRANSLOCO_SCOPE, TranslocoModule } from '@ngneat/transloco'
     CommonModule,
     PlanetsRoutingModule,
     SharedModule,
-    TranslocoModule
+    TranslocoModule,
+    LorentzComponentsModule
   ],
   providers: [{ provide: TRANSLOCO_SCOPE, useValue: 'planets' }]
 })

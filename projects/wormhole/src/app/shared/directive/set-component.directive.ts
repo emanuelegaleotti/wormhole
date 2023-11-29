@@ -1,5 +1,6 @@
 import { Directive, Input, OnInit, ViewContainerRef } from '@angular/core'
 import { loadRemoteModule } from '@angular-architects/module-federation'
+import { error } from 'ng-packagr/lib/utils/log'
 
 @Directive({
   selector: '[lorentzSetComponent]'
@@ -19,11 +20,15 @@ export class SetComponentDirective implements OnInit {
 
   loadComponent (): void {
     loadRemoteModule({
-      remoteEntry: this.remoteUrl,
       exposedModule: './Component',
-      remoteName: this.remoteName
+      remoteEntry: this.remoteUrl,
+     remoteName: this.remoteName
     }).then(c => {
-      this.view.createComponent(c[`${this.lorentzSetComponent}`])
-    })
+        this.view.clear();
+        this.view.createComponent(c[this.lorentzSetComponent])
+      },
+      e => {
+        console.error(e)
+      })
   }
 }

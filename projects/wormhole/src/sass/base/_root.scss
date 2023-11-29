@@ -6,7 +6,7 @@
     --wormhole-space-#{$size}: #{$space};
   }
   @each $name, $color in $ash-grays {
-    --wormhole-#{$name}: #{$color};
+    wormhole-#{$name}: #{$color};
   }
   --wormhole-border-radius: #{$border-radius} ;
   --wormhole-border-radius-xl: #{$border-radius-xl} ;
