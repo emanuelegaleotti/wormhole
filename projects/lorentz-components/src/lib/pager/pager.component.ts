@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core'
 
 @Component({
-  selector: 'wormhole-pager',
+  selector: 'lorentz-pager',
   templateUrl: './pager.component.html',
   styleUrls: ['./pager.component.scss']
 })
