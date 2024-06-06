@@ -24,6 +24,38 @@
       "es2015": "./event-bus/fesm2015/lorentz-event-bus.mjs",
       "node": "./event-bus/fesm2015/lorentz-event-bus.mjs",
       "default": "./event-bus/fesm2020/lorentz-event-bus.mjs"
+    },
+    "./cognito": {
+      "types": "./cognito/lorentz-cognito.d.ts",
+      "esm2020": "./cognito/esm2020/lorentz-cognito.mjs",
+      "es2020": "./cognito/fesm2020/lorentz-cognito.mjs",
+      "es2015": "./cognito/fesm2015/lorentz-cognito.mjs",
+      "node": "./cognito/fesm2015/lorentz-cognito.mjs",
+      "default": "./cognito/fesm2020/lorentz-cognito.mjs"
+    },
+    "./keycloak": {
+      "types": "./keycloak/lorentz-keycloak.d.ts",
+      "esm2020": "./keycloak/esm2020/lorentz-keycloak.mjs",
+      "es2020": "./keycloak/fesm2020/lorentz-keycloak.mjs",
+      "es2015": "./keycloak/fesm2015/lorentz-keycloak.mjs",
+      "node": "./keycloak/fesm2015/lorentz-keycloak.mjs",
+      "default": "./keycloak/fesm2020/lorentz-keycloak.mjs"
+    },
+    "./dialog": {
+      "types": "./dialog/lorentz-dialog.d.ts",
+      "esm2020": "./dialog/esm2020/lorentz-dialog.mjs",
+      "es2020": "./dialog/fesm2020/lorentz-dialog.mjs",
+      "es2015": "./dialog/fesm2015/lorentz-dialog.mjs",
+      "node": "./dialog/fesm2015/lorentz-dialog.mjs",
+      "default": "./dialog/fesm2020/lorentz-dialog.mjs"
+    },
+    "./inputs": {
+      "types": "./inputs/lorentz-inputs.d.ts",
+      "esm2020": "./inputs/esm2020/lorentz-inputs.mjs",
+      "es2020": "./inputs/fesm2020/lorentz-inputs.mjs",
+      "es2015": "./inputs/fesm2015/lorentz-inputs.mjs",
+      "node": "./inputs/fesm2015/lorentz-inputs.mjs",
+      "default": "./inputs/fesm2020/lorentz-inputs.mjs"
     }
   },
   "sideEffects": false,

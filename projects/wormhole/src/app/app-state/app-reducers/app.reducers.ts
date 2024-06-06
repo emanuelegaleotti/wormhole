@@ -1,11 +1,5 @@
-import { ActionReducerMap } from "@ngrx/store";
-import { LoaderState } from '../../core/loader/loader-state/reducers/loader.reducer'
-import { loaderReducers } from '../../core/loader/loader-state/reducers'
+import { ActionReducerMap } from '@ngrx/store'
 
-export interface AppState {
-loaderState: LoaderState
-}
+export interface AppState {}
 
-export const AppReducer: ActionReducerMap<AppState> = {
-  loaderState: loaderReducers.loaderReducer
-}
+export const AppReducer: ActionReducerMap<AppState> = {}

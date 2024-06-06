@@ -12,11 +12,23 @@
       "lorentz": [
         "dist/lorentz"
       ],
+      "lorentz-cognito": [
+        "dist/lorentz-cognito"
+      ],
       "lorentz-components": [
         "dist/lorentz-components"
       ],
+      "lorentz-dialog": [
+        "dist/lorentz-dialog"
+      ],
       "lorentz-event-bus": [
         "dist/lorentz-event-bus"
+      ],
+      "lorentz-inputs": [
+        "dist/lorentz-inputs"
+      ],
+      "lorentz-keycloak": [
+        "dist/lorentz-keycloak"
       ]
     },
     "noFallthroughCasesInSwitch": true,
@@ -26,17 +38,16 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
-    "target": "es2020",
     "module": "es2020",
     "lib": [
       "es2020",
       "dom"
-    ]
+    ],
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
-    "strictTemplates": true
+    "strictTemplates": true,
   }
 }

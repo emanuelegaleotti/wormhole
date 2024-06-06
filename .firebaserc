@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "wormhole-33eb5": {
+      "hosting": {
+        "Wormhole": [
+          "wormhole-33eb5"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "wormhole-33eb5"
+  }
+}

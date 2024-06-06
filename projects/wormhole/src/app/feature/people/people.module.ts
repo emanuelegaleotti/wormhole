@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PeopleRoutingModule } from './people-routing.module';
+import { peopleRoutes } from './people-routing.module'
 import { PeopleComponent } from './people/people.component';
 import { PersonComponent } from './person/person.component';
 import { PEOPLE_KEY } from './people-state/people.selector';
@@ -9,6 +9,7 @@ import { SharedModule } from '../../shared/shared.module';
 import { StoreModule } from '@ngrx/store';
 import { TRANSLOCO_SCOPE, TranslocoModule } from '@ngneat/transloco'
 import { LorentzComponentsModule } from '../../../../../lorentz-components'
+import { provideRouter, RouterLink } from '@angular/router'
 
 
 
@@ -19,12 +20,15 @@ import { LorentzComponentsModule } from '../../../../../lorentz-components'
   ],
   imports: [
     CommonModule,
-    PeopleRoutingModule,
     SharedModule,
     StoreModule.forFeature(PEOPLE_KEY, PeopleReducers),
     TranslocoModule,
-    LorentzComponentsModule
+    LorentzComponentsModule,
+    RouterLink
   ],
-  providers:[{ provide: TRANSLOCO_SCOPE, useValue: 'people' }]
+  providers:[
+    provideRouter(peopleRoutes),
+    { provide: TRANSLOCO_SCOPE, useValue: 'people' }
+  ]
 })
 export class PeopleModule { }

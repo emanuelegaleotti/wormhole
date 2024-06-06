@@ -1,17 +1,18 @@
 import { loadRemoteModule } from '@angular-architects/module-federation'
-import { NgModule } from '@angular/core'
-import { RouterModule, Routes } from '@angular/router'
-import { HomeComponent } from './core/home/home.component'
-import { NotFoundComponent } from './core/not-found/not-found.component'
+import { Routes } from '@angular/router'
 
-const routes: Routes = [
+export const appRoutes: Routes = [
   {
     path: 'home',
-    component: HomeComponent
+    loadComponent: () => import('./feature/home/home.component').then(c => c.HomeComponent)
   },
   {
     path: '404',
-    component: NotFoundComponent
+    loadComponent: () => import('./feature/not-found/not-found.component').then(c => c.NotFoundComponent)
+  },
+  {
+    path: '403',
+    loadComponent: () => import('./feature/not-allowed/not-allowed.component').then(c => c.NotAllowedComponent)
   },
   {
     path: 'planets',
@@ -40,9 +41,3 @@ const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '**', redirectTo: '404' }
 ]
-
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }

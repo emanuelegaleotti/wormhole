@@ -12,7 +12,9 @@ export class PlanetsComponent implements OnInit {
   currentPage: number = 1
   allPlanets: number = 0
 
-  constructor(private readonly planetsService: PlanetsService) { }
+  constructor(
+    private readonly planetsService: PlanetsService
+  ) { }
   ngOnInit(): void {
     this.gePlanets()
   }

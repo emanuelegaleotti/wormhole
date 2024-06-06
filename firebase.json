@@ -1,0 +1,9 @@
+{
+  "hosting": [
+    {
+      "target": "Wormhole",
+      "source": ".",
+      "frameworksBackend": {}
+    }
+  ]
+}

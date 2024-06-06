@@ -1,9 +1,9 @@
-import { NgModule } from '@angular/core'
-import { RouterModule, Routes } from '@angular/router'
+
+import { Routes } from '@angular/router'
 import { StarshipComponent } from './starship/starship.component'
 import { StarshipsComponent } from './starships/starships.component'
 
-const routes: Routes = [
+export const starshipsRoutes: Routes = [
   {
     path: '', component: StarshipsComponent
   },
@@ -13,8 +13,3 @@ const routes: Routes = [
   }
 ]
 
-@NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
-})
-export class StarshipsRoutingModule { }

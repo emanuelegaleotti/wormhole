@@ -31,7 +31,7 @@
           "error",
           {
             "type": "element",
-            "prefix": "wormhole",
+            "prefix": ["wormhole", "lorentz"],
             "style": "kebab-case"
           }
         ],

@@ -3,4 +3,4 @@ import { StarshipsModuleState, StarshipsState } from "./starships.reducer"
 
 export const STARSHIPS_KEY = 'starships-module'
 
-export const selectStarshipsModuleState = createFeatureSelector<StarshipsModuleState, StarshipsState>(STARSHIPS_KEY)
+export const selectStarshipsModuleState = createFeatureSelector< StarshipsState>(STARSHIPS_KEY)

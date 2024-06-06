@@ -1,0 +1,8 @@
+<span>
+  {{message$ | async}}
+</span>
+<span *transloco="let t">
+  <button type="button" (click)="close()">
+     {{t('button.close')}}
+  </button>
+</span>

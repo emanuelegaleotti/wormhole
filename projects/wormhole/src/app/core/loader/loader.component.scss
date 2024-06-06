@@ -1,0 +1,15 @@
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: aliceblue;
+  height: 100%;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+
+  p {
+    align-self: center;
+  }
+}

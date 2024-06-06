@@ -1,8 +1,6 @@
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'
+import { HttpClientModule, provideHttpClient, withInterceptors } from '@angular/common/http'
 import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
-
-import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
 import { CoreModule } from './core/core.module'
 import { SharedModule } from './shared/shared.module'
@@ -11,14 +9,15 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools'
 import { environment } from '../environments/environment'
 import { AppReducer } from './app-state/app-reducers/app.reducers'
 import { EffectsModule } from '@ngrx/effects'
-import { HttpErrorInterceptor } from './core/http-error/http-error.interceptor'
-import { HttpLoaderInterceptor } from './core/loader/http-loader.interceptor'
 import { MatDialogModule } from '@angular/material/dialog'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { TranslocoHttpLoader, TranslocoRootModule } from './transloco-root.module'
 import { NgxWebstorageModule } from 'ngx-webstorage'
 import { AngularFireModule } from '@angular/fire/compat'
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore'
+import { ErrorInterceptor, LoaderInterceptor, LorentzDialogModule } from '../../../lorentz-dialog'
+import { provideRouter, RouterOutlet } from '@angular/router'
+import { appRoutes } from './app-routing.module'
+
 
 @NgModule({
   declarations: [
@@ -27,7 +26,6 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore'
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    AppRoutingModule,
     CoreModule,
     SharedModule,
     HttpClientModule,
@@ -38,19 +36,13 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore'
     TranslocoRootModule,
     NgxWebstorageModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirestoreModule
+    LorentzDialogModule,
+    RouterOutlet
   ],
   providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: HttpErrorInterceptor,
-      multi: true
-    },
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: HttpLoaderInterceptor,
-      multi: true
-    },
+    provideRouter(appRoutes),
+    provideHttpClient(
+      withInterceptors([LoaderInterceptor, ErrorInterceptor])),
     TranslocoHttpLoader
   ],
   bootstrap: [AppComponent]
