@@ -1,0 +1,16 @@
+.lorentz-card {
+  @apply border border-gray-500 border-solid bg-white p-4;
+  .lorentz-card-header {
+    h4 {
+      @apply text-blue-500 font-semibold text-sm;
+    }
+  }
+
+  .lorentz-card-body {
+    @apply pt-4 pb-4;
+  }
+
+  .lorentz-card-footer {
+    @apply flex align-middle justify-end text-sm text-gray-600;
+  }
+}

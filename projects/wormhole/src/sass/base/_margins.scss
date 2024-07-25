@@ -1,18 +1,18 @@
 @mixin margin-utility {
   @each $size, $space in $spaces {
-    &-p-#{$size} {
+    &-m-#{$size} {
       margin: $space;
     }
-    &-pt-#{$size} {
+    &-mt-#{$size} {
       margin-top: $space;
     }
-    &-pb-#{$size} {
+    &-mb-#{$size} {
       margin-bottom: $space;
     }
-    &-pl-#{$size} {
+    &-ml-#{$size} {
       margin-bottom: $space;
     }
-    &-pr-#{$size} {
+    &-mr-#{$size} {
       margin-bottom: $space;
     }
   }

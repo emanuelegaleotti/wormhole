@@ -1,6 +1,7 @@
 import { Component } from '@angular/core'
 import { SharedModule } from '../../shared/shared.module'
 import { TranslocoModule } from '@ngneat/transloco'
+import { LorentzComponentsModule } from '../../../../../lorentz-components'
 
 @Component({
   selector: 'wormhole-home',
@@ -8,7 +9,8 @@ import { TranslocoModule } from '@ngneat/transloco'
   styleUrls: ['./home.component.scss'],
   imports: [
     SharedModule,
-    TranslocoModule
+    TranslocoModule,
+    LorentzComponentsModule
   ],
   standalone: true
 })
